@@ -1,0 +1,39 @@
+alice 1
+add_proj
+Work Work-related
+add_task
+Task1 Do-first
+1
+add_task
+Task2 Do-second
+1
+show_projects
+new_task_title
+1 1
+FirstTask
+new_task_descr
+1 1
+First-task-detailed-description
+task_due_date
+1 1
+2025-06-30
+set_task_priority
+1 1
+high
+set_task_status
+1 1
+working
+show_task
+1 1
+inc_task_prio
+1 2
+dec_task_prio
+1 2
+show_compl_tasks
+1
+set_task_status
+1 2
+done
+show_compl_tasks
+1
+exit

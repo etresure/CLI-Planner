@@ -1,0 +1,26 @@
+showalice 1
+add_proj
+Work Work-related
+add_task
+Task1 Do-first
+1
+add_task
+Task2 Do-second
+1
+set_rem
+1 1
+2025-05-10-09:00
+email
+set_rem
+1 2
+2025-05-10-09:00
+telegram
+show_rem
+1 1
+show_all_rem
+cancel_rem
+1 1
+show_rem
+1 1
+cancel_all_rem
+exit
