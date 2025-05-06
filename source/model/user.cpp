@@ -179,4 +179,9 @@ User& User::operator=(const User& other){
     }
     return *this;
 }
+Project* User::copy_project(const Project *project){
+    Project *proj = new Project(*project);
+    projects[project_count++] = proj;
+    return proj;
+}
 }

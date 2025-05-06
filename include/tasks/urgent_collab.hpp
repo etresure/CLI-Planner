@@ -17,6 +17,7 @@ public:
     void set_urgency_level(int level);
     int get_urgency_level() const;
     UrgentTask* smart_copy_task() const override;
+    void print(std::ostream& out) const override;
 };
 
 class CollaborativeTask final: public Task{
@@ -31,6 +32,9 @@ public:
     void set_progress(int new_progress);
     int get_progress() const;
     void display() const override;
+    void print(std::ostream& out) const override;
     CollaborativeTask* smart_copy_task() const override;
 };
 }
+std::ostream& operator<<(std::ostream& os, const cli_planner::CollaborativeTask& task);
+std::ostream& operator<<(std::ostream& os, const cli_planner::UrgentTask& task);

@@ -82,7 +82,11 @@ cmake --build build
 ```
 ### Запуск 
 ```bash
-./main_test
+ ./bin/main_test
+```
+или
+```bash
+ ./build/bin/main_test
 ```
 ### Перекомпиляция
 ```bash
@@ -166,7 +170,7 @@ build/bin/main_test < /path/to/project_main/tests/test2.txt
 | `show_collab`           | Показать полную информацию о совместной задаче               |
 | `help`                  | Показать список всех команд                                   |
 | `exit`                  | Выйти из приложения                                           |
-
+| `copy_project`          | Поделиться проектом с выбранным пользователем                  |
 ## Планы на будущее 
 
 - Добавить сохранение в базу данных

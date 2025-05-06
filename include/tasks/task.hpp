@@ -88,12 +88,13 @@ public:
     Task operator++(int);       // Унарный постфиксный //
     Task& operator--();   
 
-    void print(std::ostream& out) const;
+    virtual void print(std::ostream& out) const;
     virtual Task* smart_copy_task() const;
         
 };
 }
 std::ostream& operator<<(std::ostream& os, const cli_planner::Task& task);
+
 inline std::ostream& operator<<(std::ostream& os, cli_planner::Priority p){
     return os << to_string(p);
 }

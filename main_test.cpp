@@ -613,6 +613,24 @@ void work(){
                 ct->display(); cout << endl;
             }
         }
+        else if(cmd == "copy_project"){ //TODO
+            p_count = users[current_user]->get_project_count();
+            cout << "---input project number---\n"; cout << "> ";
+            proj_num = check_input(p_count); int iid; 
+            cout << "---input user id you want to share the project---\n"; cout << "> ";
+            cin >> iid;
+            bool found = false;
+            for (int i = 0; i < user_count; ++i) {
+                if (users[i]->get_id() == iid) {
+                    found = true;
+                    proj = users[current_user]->get_projects();
+                    users[i]->copy_project(*proj);
+                    break;
+                }
+            }
+            if (!found)
+                cout << "---user with this id not found---\n";
+        }
         else if (cmd == "help"){
             std::cout <<
                 "---available commands---\n"
@@ -655,7 +673,8 @@ void work(){
                 "  get_collab_progress   — Show CollaborativeTask progress\n"
                 "  show_collab           — Show full info of a CollaborativeTask\n"
                 "  help                  — Show this list of commands\n"
-                "  exit                  — Quit the application\n";
+                "  exit                  — Quit the application\n"
+                "  copy_project          - Share project with selected user\n";
                 if (p_count == 0) cout << "---input 'add_proj' to create your first project---\n";
         }
         else if (cmd == "exit")

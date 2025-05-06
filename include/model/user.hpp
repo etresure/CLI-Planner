@@ -26,6 +26,7 @@ public:
     User(const User& other);
     User& operator=(const User& other);
     Project* create_project(const string& projName, const string& projDesc);
+    Project* copy_project(const Project *project);
     void delete_project(Project* project); //
     void display() const; //
 

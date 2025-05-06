@@ -22,6 +22,18 @@ void UrgentTask::display() const {
 UrgentTask* UrgentTask::smart_copy_task() const { 
     return new UrgentTask{*this}; 
 }
+void UrgentTask::print(std::ostream &out) const{
+    out << "Title: " << title << "\n"
+       << "Description: " << description << "\n"
+       << "Created: " << creation_date << "\n"
+       << "Due: " << due_date << "\n"
+       << "Priority: " << priority << "\n"
+       << "Status: " << status << "\n" << "Urgency Level: " << urgency_level;
+}
+std::ostream& operator<<(std::ostream& out, const cli_planner::UrgentTask &task){
+    task.print(out);
+    return out;
+}
 CollaborativeTask::CollaborativeTask() : Task(), progress(0){
     for (int i = 0; i < MAX_USERS; ++i) {
         assigned_users[i] = nullptr;
@@ -77,4 +89,26 @@ void CollaborativeTask::display() const{
     }
     if (first) std::cout << "None";
     std::cout << std::endl;
+}
+void CollaborativeTask::print(std::ostream &out) const{
+    out << "Title: " << title << "\n"
+       << "Description: " << description << "\n"
+       << "Created: " << creation_date << "\n"
+       << "Due: " << due_date << "\n"
+       << "Priority: " << priority << "\n"
+       << "Status: " << status << "\nProgress: " << progress << "%" << "\n";
+       bool first = true;
+       out << "Assigned Users: ";
+       for (int i = 0; i < MAX_USERS; ++i){
+        if (assigned_users[i]){
+            if (!first) out << ", ";
+             out << assigned_users[i]->get_name();
+            first = false;
+        }
+    }
+    if (first) out << "None";
+}
+std::ostream& operator<<(std::ostream& out, const cli_planner::CollaborativeTask &task){
+    task.print(out);
+    return out;
 }
